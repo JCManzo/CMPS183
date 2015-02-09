@@ -1,0 +1,282 @@
+timestamp: 2014-10-13T20:17:09.649114
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2014-10-13T20:17:09.652748
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-10-13T20:17:09.654640
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-10-13T20:17:09.656555
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2014-10-13T20:17:09.658820
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-10-13T20:17:09.661496
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2014-10-14T22:58:55.867673
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512)
+);
+success!
+timestamp: 2014-10-14T23:01:50.666896
+ALTER TABLE note ADD date_made TIMESTAMP;
+success!
+timestamp: 2014-10-14T23:03:43.713967
+ALTER TABLE note ADD body TEXT;
+success!
+timestamp: 2014-10-15T11:55:09.313005
+ALTER TABLE note ADD created_on TIMESTAMP;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2014-10-15T12:01:33.599120
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2014-10-15T12:05:45.193088
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP
+);
+timestamp: 2014-10-15T12:06:11.385532
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2014-10-15T12:09:01.373254
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2014-10-15T12:12:52.573074
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2014-10-15T12:19:31.464548
+ALTER TABLE auth_user ADD username CHAR(128);
+success!
+timestamp: 2014-10-21T16:14:27.511876
+ALTER TABLE note ADD last_opened TIMESTAMP;
+success!
+timestamp: 2014-10-21T16:15:20.577839
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    title CHAR(512),
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+timestamp: 2014-10-22T17:33:13.372603
+ALTER TABLE note ADD note_id INTEGER;
+success!
+success!
+timestamp: 2014-10-22T17:34:02.469205
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    note_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2014-10-22T17:48:56.556460
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    note_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+timestamp: 2014-10-22T18:18:20.987819
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+timestamp: 2014-10-23T08:35:05.653160
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+timestamp: 2014-10-23T08:40:18.587319
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+timestamp: 2014-10-23T08:40:32.671302
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+timestamp: 2014-10-23T08:40:51.419573
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+timestamp: 2014-10-23T08:41:40.002656
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!
+timestamp: 2014-10-26T18:56:35.925032
+CREATE TABLE note(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    body TEXT,
+    created_on TIMESTAMP,
+    last_opened TIMESTAMP
+);
+success!

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="{{=URL('static','components/webcomponentsjs/webcomponents.js')}}"></script>
+<link rel="import" href="{{=URL('static','components/font-roboto/roboto.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-header-panel/core-header-panel.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-toolbar/core-toolbar.html')}}" >
+
+<link rel="import" href="{{=URL('static','components/core-icon-button/core-icon-button.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-item/paper-item.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-icons/core-icons.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-fab/paper-fab.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-shadow/paper-shadow.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-drawer-panel/core-drawer-panel.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-tooltip/core-tooltip.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-dialog/paper-dialog.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-dialog/paper-dialog-transition.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-button/paper-button.html')}}" >
+<link rel="import" href="{{=URL('static','components/core-tooltip/core-tooltip.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-input/paper-autogrow-textarea.html')}}" >
+<link rel="import" href="{{=URL('static','components/paper-input/paper-input-decorator.html')}}" >
+
+<!-- include stylesheets -->
+{{response.files.append(URL('static','css/noter.css'))}}
+{{include 'web2py_ajax.html'}}
+
+<title>{{=response.title or request.application}}</title>
+  <style shim-shadowdom>
+    core-tooltip.fancy::shadow .core-tooltip {
+      opacity: 0;
+      -webkit-transition: all 300ms cubic-bezier(0,1.92,.99,1.07);
+      transition: all 300ms cubic-bezier(0,1.92,.99,1.07);
+      -webkit-transform: translate3d(0, -10px, 0);
+      transform: translate3d(0, -10px, 0);
+    }
+
+    core-tooltip.fancy:hover::shadow .core-tooltip,
+    core-tooltip.fancy:focus::shadow .core-tooltip {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- Navbar ================================================== -->
+<core-header-panel>
+    <core-toolbar class="nav_toolbar">
+      <div id="home_button_container">
+        <a href="/noter/default/index">
+          <core-tooltip label="Home" class="fancy" position="bottom">
+            <core-icon-button icon="home" class="home"></core-icon-button>
+          </core-tooltip>
+        </a>
+      </div>
+      <div id="log_off_button_container">
+        <a href="{{=URL('default','user/logout\?_next\=/noter/default/index\#', scheme='http')}}">
+          <core-tooltip label="Log out" class="fancy" position="bottom">
+            <core-icon-button class="test" src="{{=URL('static','images/log_off.png')}}"></core-icon-button>
+          </core-tooltip>
+        </a>
+      </div>
+      <span flex></span>
+      <div id="add_button_container">
+        <a href="/noter/default/add.html">
+          <core-tooltip label="Add a note" class="fancy" position="bottom">
+            <paper-fab icon="create" class="green"></paper-fab>
+          </core-tooltip>
+        </a>
+      </div>
+
+      <div id="back_button_container">
+        <a href="/noter/default/index">
+          <core-tooltip label="Back to notes" class="fancy" position="bottom">
+            <paper-fab icon="arrow-back" class="arrow_back"></paper-fab>
+          </core-tooltip>
+        </a>
+      </div>
+    </core-toolbar>
+
+    {{block center}}
+            {{include}}
+            {{end}}
+</core-header-panel>
+
+</body>
+</html>
+

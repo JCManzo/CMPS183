@@ -1,0 +1,110 @@
+timestamp: 2014-11-25T14:38:35.750658
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2014-11-25T14:38:35.755314
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-11-25T14:38:35.758721
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-11-25T14:38:35.763442
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2014-11-25T14:38:35.774462
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-11-25T14:38:35.789465
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2014-11-25T14:41:29.766513
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+success!
+timestamp: 2014-11-25T14:41:29.770281
+CREATE TABLE contact(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    note CHAR(512)
+);
+success!
+timestamp: 2014-11-25T14:41:29.773161
+CREATE TABLE supplier(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    address CHAR(512),
+    contacts TEXT
+);
+success!
+timestamp: 2014-11-25T14:41:29.776060
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+timestamp: 2014-11-25T14:41:29.778973
+CREATE TABLE customer(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    purchases TEXT
+);
+success!
+timestamp: 2014-11-29T14:46:45.928829
+CREATE TABLE line_item(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    item_name INTEGER REFERENCES products (id) ON DELETE CASCADE,
+    item_count INTEGER,
+    item_price INTEGER,
+    item_total CHAR(512)
+);
+success!
+success!

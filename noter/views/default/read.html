@@ -1,0 +1,49 @@
+{{extend 'layout.html'}}
+<style>
+#back_button_container {
+  display: block;
+}
+
+#opened_note {
+  width: 400px;
+  margin: 50px auto;
+
+}
+
+
+
+.reading_note:hover{
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Chrome, Safari, Opera */
+    transform: scale(1.1);
+    transition:transform .3s;
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+}
+
+#nav_del_button_container {
+ position: relative;
+  z-index: 1;
+  bottom: -28px;
+  right: 24px;
+  }
+#add_button_container {
+  display: none;
+}
+</style>
+ <!--Inserts the delete button to the toolbar -->
+    <div id="nav_del_button_container"><a href='/noter/default/delete/{{=XML(parameter)}}'> <core-tooltip label="Delete note" class="fancy" position="bottom"><paper-fab icon="delete" class="red"></paper-fab></core-tooltip></a></div>
+    <div class="flash">{{=response.flash or ''}}</div>
+      <div>
+      {{
+      =result
+      }}
+</div>
+
+<script>
+  $(document).ready(function () {
+    $( ".nav_toolbar" ).append($('#nav_del_button_container'));
+    console.log("ready");
+  });
+</script>

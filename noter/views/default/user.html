@@ -1,0 +1,49 @@
+{{extend 'layout.html'}}
+
+<style>
+  #web2py_user_form {
+    background-color: white;
+    padding: 40px;
+    border-radius:3px;
+    box-shadow:0 1px 2px #aaa;
+    margin: 50px auto;
+  }
+  #add_button_container {
+  display: none;
+}
+#log_off_button_container {
+  display: none;
+    }
+  </style>
+
+    <!-- main page content will go here -->
+<div class="container" layout vertical center>
+    <div id="web2py_user_form">
+      <h2 id="panel_title" >Login</h2>
+        {{
+        if request.args(0)=='login' and not session.auth_2_factor_user:
+            if not 'register' in auth.settings.actions_disabled:
+            pass
+            if not 'request_reset_password' in auth.settings.actions_disabled:
+            pass
+        pass
+        =form
+        }}
+    </div>
+    <script language="javascript"><!--
+jQuery("#web2py_user_form input:visible:enabled:first").focus();
+{{if request.args(0)=='register':}}
+    web2py_validate_entropy(jQuery('#auth_user_password'),100);
+{{elif request.args(0) in ('change_password','reset_password'):}}
+    web2py_validate_entropy(jQuery('#no_table_new_password'),100);
+{{pass}}
+</script>
+
+</div>
+<div class="footer" layout vertical center>
+      <a href="/noter/default/user/register?_next=/noter/default/index" rel="nofollow">Need an account?</a>
+      <a href="/noter/default/user/request_reset_password?_next=/noter/default/index#">Forgot your password?</a>
+  </div>
+</core-header-panel>
+
+

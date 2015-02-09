@@ -1,0 +1,33 @@
+{{extend 'layout.html'}}
+<style>
+  #mainContainer {
+    width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    color: black;
+  }
+</style>
+
+<div id="mainContainer">
+{{=H3(message)}}
+{{=H3(summation)}}
+
+{{=response.flash}}
+{{=H4('Order will be placed at ', request.now.today())}}
+
+{{=form}}
+{{=H3('Your cart contains:')}}
+{{=result}}
+</div>
+
+<script>
+$(document).ready(function($) {
+
+    $('#line_item_item_name').change(function() {
+      var selected =  $( "select option:selected" );
+      callbackURL = '{{=URL('default', 'get_item_price?what=')}}' + selected.text();
+      ajax(callbackURL, [], ':eval');
+
+});
+});
+</script>

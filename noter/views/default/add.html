@@ -1,0 +1,19 @@
+{{extend 'layout.html'}}
+<style>
+  #add_button_container {
+  display: none;
+}
+  #back_button_container {
+    display: block;
+  }
+core-icon-button {
+    src: "{{=URL('static','images/arrow_back.png')}}";
+}
+</style>
+
+      <h2 align="center">New note </h2>
+      <div id="form_container">
+        <div id="note_form">
+{{=form}}
+        </div>
+      </div>

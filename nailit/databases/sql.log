@@ -1,0 +1,761 @@
+timestamp: 2014-10-28T15:31:16.919731
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2014-10-28T15:31:16.922581
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-10-28T15:31:16.924959
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2014-10-28T15:31:16.927581
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2014-10-28T15:31:16.930269
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2014-10-28T15:31:16.933293
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2014-11-03T20:47:59.688832
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+success!
+timestamp: 2014-11-03T20:51:43.971682
+CREATE TABLE supplier(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    address CHAR(512),
+    contacts TEXT
+);
+success!
+timestamp: 2014-11-03T20:51:54.282913
+CREATE TABLE contact(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    note TEXT
+);
+success!
+timestamp: 2014-11-03T20:52:00.633928
+CREATE TABLE customer(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    purchases TEXT
+);
+success!
+timestamp: 2014-11-03T20:52:27.179519
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each INTEGER,
+    total_price INTEGER
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T16:25:13.638273
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price INTEGER
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T16:39:48.256979
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T16:51:36.609524
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T16:56:14.911852
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T16:57:39.192018
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T17:02:53.514045
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T17:06:25.578371
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T18:39:21.227030
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T18:40:03.100068
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T18:41:25.947531
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T18:43:14.418465
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:07:26.535055
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:08:07.783341
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:11:51.141845
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:12:47.284949
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:13:36.763189
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:20:58.899306
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:22:04.663577
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:22:40.713018
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:23:12.467767
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:35:08.294303
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T19:36:09.738770
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T21:30:33.321546
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T21:31:55.259840
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T21:42:02.231920
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price DOUBLE
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-04T21:42:26.975570
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE supplier;
+success!
+timestamp: 2014-11-05T22:11:18.950969
+CREATE TABLE supplier(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    address CHAR(512),
+    contacts INTEGER REFERENCES contact (id) ON DELETE CASCADE
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-05T22:19:54.910853
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-05T22:20:28.937591
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-05T22:21:48.098979
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T13:54:42.057180
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T13:56:12.746098
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T13:57:10.984670
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:02:32.222577
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:06:30.422307
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:08:53.081221
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:11:04.468951
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:12:06.126954
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:18:22.094741
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:19:12.854086
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:19:40.364557
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:20:12.280584
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:21:42.840337
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+DROP TABLE purchase;
+success!
+timestamp: 2014-11-06T14:23:20.298265
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+timestamp: 2014-11-06T17:51:19.501116
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+success!
+timestamp: 2014-11-06T17:51:19.506649
+CREATE TABLE supplier(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    address CHAR(512),
+    contacts TEXT
+);
+success!
+timestamp: 2014-11-06T17:51:19.510055
+CREATE TABLE contact(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    note TEXT
+);
+success!
+timestamp: 2014-11-06T17:51:19.515842
+CREATE TABLE customer(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    purchases TEXT
+);
+success!
+timestamp: 2014-11-06T17:52:09.729867
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2014-11-06T18:28:06.641199
+ALTER TABLE products ADD name CHAR(512);
+success!
+success!
+success!
+timestamp: 2014-11-06T20:55:39.785694
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+timestamp: 2014-11-06T20:55:39.925814
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+timestamp: 2014-11-06T20:56:16.097017
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+timestamp: 2014-11-06T20:56:16.228874
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+timestamp: 2014-11-06T20:57:22.336805
+CREATE TABLE products(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    on_hand INTEGER,
+    price DOUBLE,
+    on_order INTEGER
+);
+success!
+timestamp: 2014-11-06T20:57:22.339665
+CREATE TABLE contact(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    note CHAR(512)
+);
+success!
+timestamp: 2014-11-06T20:57:22.341514
+CREATE TABLE supplier(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    address CHAR(512),
+    contacts TEXT
+);
+success!
+timestamp: 2014-11-06T20:57:22.346042
+CREATE TABLE purchase(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    purchase_date TIMESTAMP,
+    items_bought TEXT,
+    price_of_each TEXT,
+    quantity_of_each TEXT,
+    total_price CHAR(512)
+);
+success!
+timestamp: 2014-11-06T20:57:22.352412
+CREATE TABLE customer(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    phone CHAR(512),
+    email CHAR(512),
+    purchases TEXT
+);
+success!

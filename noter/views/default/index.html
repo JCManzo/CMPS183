@@ -1,0 +1,27 @@
+{{extend 'layout.html'}}
+<style>
+  #log_off_button_container {
+visibility: visible;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+</style>
+
+    <!-- main page content will go here -->
+    <h2 id="panel_title" >{{=message}}</h2>
+    <div class="container" layout vertical center>
+      {{
+      =DIV(*[DIV(DIV(A(XML("<paper-fab mini icon='delete' class='hover_del_button' ></paper-fab>"), _href='delete/' + str(rows.id)), _class='del_button_contain'), A(DIV(P(*rows.body, _class='note_content', _id=rows.id), _class='a_note_container'), _href='read/' + str(rows.id)), _class='single_note',)for rows in notes], _id='note_container')
+      }}
+
+
+
+</div>
+
+
+
